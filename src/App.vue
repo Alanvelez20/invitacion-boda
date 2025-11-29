@@ -1,11 +1,29 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div>
+    <EnvelopeIntro v-if="!opened" @openInvitation="handleOpenInvitation" />
+    <MainLayout v-else key="main" />
+  </div>
 </template>
 
-<style scoped></style>
+<script setup>
+import { ref } from 'vue'
+import EnvelopeIntro from './components/EnvelopeIntro.vue'
+import MainLayout from '@/layouts/MainLayout.vue'
+
+const opened = ref(false)
+
+const handleOpenInvitation = () => {
+  opened.value = true
+}
+</script>
+
+<style>
+body {
+  margin: 0;
+  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+</style>

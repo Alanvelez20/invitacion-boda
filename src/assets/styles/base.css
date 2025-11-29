@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fffafc;
+  color: #333;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', serif;
+}
+html {
+  scroll-behavior: smooth;
+}
