@@ -13,8 +13,8 @@
 
       <!-- CARTA Y FOTOS SALIENDO DEL SOBRE -->
       <div class="content-layer">
-        <img class="photo left" src="/src/assets/images/polaroid.png" alt="Foto izquierda" />
-        <img class="photo right" src="/src/assets/images/polaroid.png" alt="Foto derecha" />
+        <img class="photo left" src="/src/assets/images/polaroidboda1.png" alt="Foto izquierda" />
+        <img class="photo right" src="/src/assets/images/polaroidboda2.png" alt="Foto derecha" />
         <img
           class="letter"
           src="/src/assets/images/letter.jpg"

@@ -26,7 +26,7 @@ const menuOpen = ref(false)
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff7f0;
+  background: #fff;
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -37,7 +37,7 @@ const menuOpen = ref(false)
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
-  color: #8b4513;
+  color: ##000;
 }
 
 .menu-toggle {
@@ -55,13 +55,13 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #5a3e2b;
+  color: #000;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #c47f39;
+  color: #d4791f;
 }
 
 /* 📱 Responsive */

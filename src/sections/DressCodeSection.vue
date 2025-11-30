@@ -10,13 +10,15 @@
         <div class="card">
           <img src="https://cdn-icons-png.flaticon.com/512/949/949625.png" alt="Mujer elegante" />
           <h3>Mujeres</h3>
-          <p>Evitar colores blanco o beige.</p>
+          <p>¡Llevar colores pastel!</p>
+          <p>Evitar colores blanco, beige y negro.</p>
         </div>
 
         <div class="card">
           <img src="https://cdn-icons-png.flaticon.com/512/949/949626.png" alt="Hombre elegante" />
           <h3>Hombres</h3>
-          <p>Evitar colores blanco o beige.</p>
+          <p>¡Llevar colores pastel!</p>
+          <p>Evitar colores blanco, beige y negro.</p>
         </div>
       </div>
     </div>

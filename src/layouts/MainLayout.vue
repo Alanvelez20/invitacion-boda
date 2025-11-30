@@ -21,6 +21,10 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+const showCazuela = ref(false)
+
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 

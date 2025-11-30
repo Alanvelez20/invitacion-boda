@@ -84,33 +84,43 @@ onUnmounted(() => clearInterval(timer))
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   text-align: center;
   scroll-snap-align: start;
-  background: linear-gradient(180deg, #fff4ec, #ffe8d6);
+  background: url('/src/assets/images/932A9870.jpg') no-repeat center center;
+  background-size: cover;
   font-family: 'Poppins', sans-serif;
   color: #4b2e1f;
+  opacity: 0;
+  animation: fadeInBg 2s ease-out forwards;
+}
+
+@keyframes fadeInBg {
+  to {
+    opacity: 1;
+  }
 }
 
 .countdown-container {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.05);
   padding: 2.5rem 3rem;
   border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
 }
 
 .title {
   font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #a25b45;
+  color: #fff;
 }
 
 .date {
   font-size: 1.5rem;
   letter-spacing: 2px;
   margin-bottom: 2rem;
+  color: #fff;
 }
 
 .timer {
@@ -129,12 +139,12 @@ onUnmounted(() => clearInterval(timer))
 .number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #402218;
+  color: #d4791f;
 }
 
 .label {
   font-size: 0.9rem;
-  color: #7a5c50;
+  color: #d4791f;
   text-transform: uppercase;
   margin-top: 0.25rem;
 }
@@ -142,19 +152,23 @@ onUnmounted(() => clearInterval(timer))
 .message {
   margin-top: 2rem;
   font-size: 1.3rem;
-  color: #a25b45;
+  color: #fff;
   font-weight: 600;
 }
 
 /* 📱 Responsive */
 @media (max-width: 768px) {
   .countdown-container {
-    padding: 2rem;
+    padding: 0.1rem;
+  }
+
+  .title {
+    font-size: 2rem;
   }
 
   .timer {
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.2rem;
   }
 
   .number {

@@ -1,10 +1,10 @@
 <template>
   <section class="cazuela-section">
     <div class="card">
-      <h2>🌾 Información sobre la Cazuela</h2>
+      <h2>Información sobre la Cazuela</h2>
 
       <p class="intro">
-        ¡Gracias por confirmar tu asistencia! 🙌 Además, fuiste elegido para traer una
+        ¡Gracias por confirmar tu asistencia! Además, fuiste elegido para traer una
         <strong>cazuela especial</strong>
         para celebrar con nosotros como lo dicta la tradición familiar.
       </p>
@@ -18,11 +18,12 @@
       </div>
 
       <div class="info-box">
-        <h3>¿Qué debes llevar?</h3>
+        <h3>¿Qué debes hacer?</h3>
         <ul>
-          <li>Una cazuela de barro o recipiente grande.</li>
-          <li>Preparada como normalmente la haces (o como se te indicó previamente).</li>
-          <li>Entregarla al llegar al evento en la mesa de organización.</li>
+          <li>Esperar una sorpresa de nuestra parte. Pronto...</li>
+          <li>Avisarnos que guiso elegiste para que no se repita.</li>
+          <li>Preparar el guiso a tu elección.</li>
+          <li>Entregarlo al llegar al evento en la mesa de comida.</li>
         </ul>
       </div>
 
