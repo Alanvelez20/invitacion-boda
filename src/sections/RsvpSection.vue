@@ -125,7 +125,7 @@ const confirmAttendance = async (coming) => {
 
   // ✦ Si el invitado NO va, cancelamos y ocultamos sección de cazuela
   if (!coming) {
-    confirmationMessage.value = `Lamentamos que no puedas venir`
+    confirmationMessage.value = `Lamentamos que no puedas venir. ¡Nos habría encantado contar con tu presencia!`
     await sendToSheets({
       invitado: filteredGuest.value.invitado,
       acompanantes: '[]',
@@ -140,6 +140,7 @@ const confirmAttendance = async (coming) => {
   // ✦ Lógica de cuando SÍ va a asistir
   if (filteredGuest.value.personas === 1) {
     confirmationMessage.value = `¡Gracias por confirmar! Nos vemos pronto`
+
     await sendToSheets({
       invitado: filteredGuest.value.invitado,
       acompanantes: '[]',
@@ -148,17 +149,23 @@ const confirmAttendance = async (coming) => {
       comentario: 'Asistirá solo',
     })
 
+    // ✦ MOSTRAR sección de cazuela si aplica
+    if (filteredGuest.value.cazuela === true) {
+      emit('cazuela', { show: true, name: filteredGuest.value.invitado })
+    } else {
+      emit('cazuela', false)
+    }
+
     return // IMPORTANTE
   } else {
     // Crear inputs para acompañantes
     companions.value = Array(filteredGuest.value.personas - 1).fill('')
-  }
-
-  // ✦ MOSTRAR sección de cazuela si aplica
-  if (filteredGuest.value.cazuela === true) {
-    emit('cazuela', true)
-  } else {
-    emit('cazuela', false)
+    // ✦ MOSTRAR cazuela SI APLICA aunque tenga acompañantes
+    if (filteredGuest.value.cazuela === true) {
+      emit('cazuela', { show: true, name: filteredGuest.value.invitado })
+    } else {
+      emit('cazuela', false)
+    }
   }
 }
 
@@ -252,98 +259,184 @@ const submitCompanions = async () => {
   align-items: center;
   font-family: 'Poppins', sans-serif;
   scroll-snap-align: start;
-  background: linear-gradient(to bottom, #ffe4c4, #ffdcb2);
+  background: white url('https://www.transparenttextures.com/patterns/white-linen.png');
+  background-size: 250px 250px;
+  padding: 2.5rem 1rem;
 }
 
+/* Contenedor principal */
 .rsvp-container {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background: #fffefc;
+  padding: 2.8rem 2.4rem;
+  border-radius: 24px;
+  border: 1px solid #d4791f;
   text-align: center;
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 550px;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.6s ease;
 }
 
 .title {
   font-size: 2rem;
-  color: #8b4513;
-  margin-bottom: 0.5rem;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
 }
 
 .subtitle {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
+  margin-bottom: 1.8rem;
+  font-size: 1.05rem;
+  color: #000;
 }
 
+/* Buscador */
 .search-box,
 .input {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  border: 1px solid #d4a373;
-  margin-bottom: 1rem;
+  width: 95%;
+  padding: 0.9rem;
+  border-radius: 14px;
+  border: 1px solid #d4791f;
+  background: #fffefc;
   font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: 0.2s ease;
+}
+
+.search-box:focus,
+.input:focus {
+  outline: none;
+  border-color: #d4791f;
+  box-shadow: 0 0 0 3px #efae6d;
+}
+
+.guest-card {
+  margin-top: 1.2rem;
+  background: #fffefc;
+  padding: 1.7rem 1.4rem;
+  border-radius: 20px;
+  border: 1px solid #d4791f;
+  text-align: left;
 }
 
 .guest-name {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
+  color: #000;
 }
 
+/* Mensaje cazuela */
 .cazuela-msg {
-  background: #fff7e6;
-  padding: 0.7rem;
-  border-radius: 8px;
-  color: #5a3e1b;
+  background: #fff2e4;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  color: #000;
   font-weight: 500;
+  border: 1px solid #f1dac2;
   margin-bottom: 1rem;
 }
 
 .cazuela-small {
+  display: block;
   font-size: 0.8rem;
   opacity: 0.8;
 }
 
+/* Botones SI / NO */
 .buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .btn {
-  padding: 0.7rem 1.4rem;
-  border-radius: 8px;
-  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 14px;
   cursor: pointer;
+  border: 1px solid #e7c7b0;
+  font-weight: 600;
+  transition: 0.25s ease;
 }
 
+/* Tonos suaves pastel */
 .btn.yes {
-  background: #ffb347;
+  background: #ffe0c3;
+  color: #000;
 }
-.btn.no {
-  background: #b56576;
+.btn.yes:hover {
+  background: #ffd2ac;
+  transform: translateY(-3px);
 }
 
+.btn.no {
+  background: #ffe0c3;
+  color: #000;
+}
+.btn.no:hover {
+  background: #ffd2ac;
+  transform: translateY(-3px);
+}
+
+/* Acompañantes */
 .companions-box {
   margin-top: 1.5rem;
-  text-align: left;
 }
 
+.companions-title {
+  font-size: 1.05rem;
+  color: #000;
+  margin-bottom: 0.8rem;
+}
+
+.companion-input .input {
+  margin-bottom: 0.8rem;
+}
+
+/* Botón enviar */
 .submit-btn {
   width: 100%;
   padding: 0.9rem;
-  background: #ffb347;
-  border-radius: 10px;
-  color: white;
-  margin-top: 1rem;
+  background: #ffe0c3;
+  border-radius: 14px;
+  border: 1px solid #ffd2ac;
+  color: #000;
   cursor: pointer;
+  font-weight: 600;
   font-size: 1rem;
+  transition: 0.25s ease;
 }
 
+.submit-btn:hover {
+  background: #ffd2ac;
+  transform: translateY(-3px);
+}
+
+/* Mensajes */
+.not-found,
 .confirmation {
-  margin-top: 1.5rem;
-  font-size: 1.1rem;
+  margin-top: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 600;
+  color: #000;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rsvp-container {
+    padding: 2.2rem 1.6rem;
+  }
 }
 </style>

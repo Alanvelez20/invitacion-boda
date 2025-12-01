@@ -7,7 +7,7 @@
 <style scoped>
 .footer {
   background-color: var(--color-acento);
-  color: #444;
+  color: #fff;
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;

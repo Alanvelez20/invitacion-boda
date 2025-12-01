@@ -31,14 +31,79 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
+
+      <!-- Carrusel de Fotos del Lugar -->
+      <div class="carousel-container">
+        <h3 class="carousel-title">Un vistazo al lugar</h3>
+
+        <div class="carousel">
+          <div
+            v-for="(img, index) in venueImages"
+            :key="index"
+            class="carousel-slide"
+            :class="{ active: index === currentSlide }"
+          >
+            <img :src="img" alt="Lugar del evento" />
+          </div>
+
+          <!-- Botones -->
+          <button class="carousel-btn left" @click="prevSlide">❮</button>
+          <button class="carousel-btn right" @click="nextSlide">❯</button>
+
+          <!-- Indicadores -->
+          <div class="carousel-dots">
+            <span
+              v-for="(img, index) in venueImages"
+              :key="'dot-' + index"
+              class="dot"
+              :class="{ active: index === currentSlide }"
+              @click="goToSlide(index)"
+            ></span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const venueImages = [
+  'src/assets/images/terraza3.jpeg',
+  'src/assets/images/terraza2.jpeg',
+  'src/assets/images/terraza1.jpeg',
+]
+
+const currentSlide = ref(0)
+let interval = null
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % venueImages.length
+}
+
+const prevSlide = () => {
+  currentSlide.value = (currentSlide.value - 1 + venueImages.length) % venueImages.length
+}
+
+const goToSlide = (index) => {
+  currentSlide.value = index
+}
+
+onMounted(() => {
+  interval = setInterval(nextSlide, 4000)
+})
+
+onBeforeUnmount(() => {
+  clearInterval(interval)
+})
+</script>
+
 <style scoped>
 .section {
   width: 100%;
-  background: #ffffff;
+  background: white url('https://www.transparenttextures.com/patterns/white-linen.png');
+  background-size: 250px 250px;
   scroll-snap-align: start;
   padding: 6rem 1rem;
   display: flex;
@@ -143,6 +208,101 @@
   border: none;
 }
 
+/* CARRUSEL */
+.carousel-container {
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #d4791f;
+}
+
+/* Wrapper */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height: 450px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid #d4791f;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Slides */
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botones */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.65);
+  border: none;
+  font-size: 2.2rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #ffffffa0;
+  border: 2px solid #d4791f;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background: #d4791f;
+}
+
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .grid {
@@ -160,11 +320,24 @@
   }
 
   .info-card {
-    padding: 2rem 1.6rem;
+    padding: 2rem 0rem;
   }
 
-  .map-wrapper iframe {
+  .map-wrapper {
     height: 320px;
+    width: 80%;
+  }
+  .carousel {
+    height: 280px;
+    width: 80%;
+  }
+
+  .carousel-title {
+    font-size: 1.6rem;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
   }
 }
 </style>

@@ -11,6 +11,7 @@
       <a href="#confirmacion">Confirmación</a>
       <a href="#codigo-vestimenta">Código de Vestimenta</a>
       <a href="#galeria">Galería</a>
+      <a href="#gifts">Mesa de regalos</a>
     </nav>
   </header>
 </template>
@@ -37,7 +38,7 @@ const menuOpen = ref(false)
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
-  color: ##000;
+  color: #000;
 }
 
 .menu-toggle {

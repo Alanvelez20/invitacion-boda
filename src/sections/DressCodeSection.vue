@@ -2,23 +2,63 @@
   <section id="dresscode" class="section dresscode-section">
     <div class="dresscode-container">
       <h2 class="title">Código de Vestimenta</h2>
+
       <p class="subtitle">Formal Casual</p>
-      <p class="note">Queremos que te sientas cómodo y luzcas increíble en este día tan especial</p>
-      <b><p class="note">¡LLevar traje de baño indispendable!</p></b>
+      <p class="note">
+        Queremos que te sientas cómodo, fresco y luzcas increíble en este día tan especial.
+      </p>
+      <p class="note highlight">
+        <b>¡Traje de baño <u>¡INDISPENSABLE!</u></b>
+      </p>
 
       <div class="dresscode-grid">
+        <!-- Mujeres -->
         <div class="card">
           <img src="https://cdn-icons-png.flaticon.com/512/949/949625.png" alt="Mujer elegante" />
           <h3>Mujeres</h3>
-          <p>¡Llevar colores pastel!</p>
-          <p>Evitar colores blanco, beige y negro.</p>
+          <p class="main-text">Recomendación: colores pastel suaves</p>
+          <p class="main-text">Evitar <u style="color: red">BLANCO, BEIGE y NEGRO</u></p>
         </div>
 
+        <!-- Hombres -->
         <div class="card">
           <img src="https://cdn-icons-png.flaticon.com/512/949/949626.png" alt="Hombre elegante" />
           <h3>Hombres</h3>
-          <p>¡Llevar colores pastel!</p>
-          <p>Evitar colores blanco, beige y negro.</p>
+          <p class="main-text">Recomendación: tonos claros.</p>
+          <p class="main-text">Evitar <u style="color: red">BLANCO, BEIGE y NEGRO</u></p>
+        </div>
+      </div>
+
+      <div class="palette">
+        <h4>Colores sugeridos</h4>
+        <p>Tonos pastel</p>
+
+        <!-- Primera fila -->
+        <div class="colors">
+          <span class="color" style="background: #fde2f3"></span>
+          <!-- rosa pastel frío -->
+          <span class="color" style="background: #e3d5ff"></span>
+          <!-- lavanda pastel -->
+          <span class="color" style="background: #c8e7ff"></span>
+          <!-- azul celeste pastel -->
+          <span class="color" style="background: #d2f8e2"></span>
+          <!-- verde menta pastel -->
+          <span class="color" style="background: #ffe0f0"></span>
+          <!-- rosa algodón dulce -->
+        </div>
+
+        <!-- Segunda fila -->
+        <div class="colors">
+          <span class="color" style="background: #ffd4e5"></span>
+          <!-- rosado chicle pastel -->
+          <span class="color" style="background: #d7f3ff"></span>
+          <!-- azul hielo pastel -->
+          <span class="color" style="background: #daf5d7"></span>
+          <!-- verde leche almendra pastel -->
+          <span class="color" style="background: #e9d7ff"></span>
+          <!-- púrpura nube pastel -->
+          <span class="color" style="background: #ffe1fb"></span>
+          <!-- magenta suave pastel -->
         </div>
       </div>
     </div>
@@ -27,120 +67,147 @@
 
 <style scoped>
 .section {
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
+  padding: 6rem 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-family: 'Poppins', sans-serif;
   scroll-snap-align: start;
-  transition: background 0.5s ease;
-  padding: 3rem 1.5rem;
-  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 .dresscode-section {
-  background: linear-gradient(to bottom right, #ffe5c0, #ffd5a3);
+  background: white url('https://www.transparenttextures.com/patterns/white-linen.png');
+  background-size: 250px 250px;
 }
 
+/* CONTENEDOR PRINCIPAL */
 .dresscode-container {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
   width: 100%;
+  max-width: 900px;
+  background: #fffefc;
+  border-radius: 20px;
+  padding: 4rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 6px 18px #d4791f;
+  backdrop-filter: blur(8px);
 }
 
+/* TITULO */
 .title {
-  font-size: 2rem;
-  color: #8b4513;
-  margin-bottom: 0.5rem;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 0.8rem;
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  color: #a66a2e;
-  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #d4791f;
+  margin-bottom: 1.5rem;
 }
 
 .note {
-  color: #5a3d2b;
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  color: #000;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
+.note.highlight {
+  color: #d4791f;
+  font-size: 1.2rem;
+}
+
+/* GRID DE TARJETAS */
 .dresscode-grid {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 2.5rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
 }
 
+/* TARJETAS */
 .card {
-  background: #fffdf9;
-  border-radius: 15px;
-  padding: 1.5rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  width: 250px;
+  background: #fffdf8;
+  padding: 2rem;
+  border-radius: 18px;
+  width: 280px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-7px);
 }
 
 .card img {
-  width: 80px;
-  height: 80px;
+  width: 90px;
   margin-bottom: 1rem;
 }
 
 .card h3 {
-  color: #b5651d;
-  margin-bottom: 0.5rem;
+  color: #d4791f;
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
 }
 
-.card p {
-  color: #4b2e1f;
-  font-size: 0.9rem;
+.main-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000;
 }
 
-/* Paleta de colores */
-.palette {
-  margin-top: 1.5rem;
+.sub-text {
+  font-size: 1rem;
+  color: #000;
 }
 
+/* PALETA DE COLORES */
 .palette h4 {
-  color: #8b4513;
+  font-size: 1.4rem;
+  color: #d4791f;
   margin-bottom: 1rem;
+}
+
+.palette {
+  margin-top: 1rem;
+  text-align: center;
 }
 
 .colors {
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 10px;
+  margin: 10px 0;
 }
 
 .color {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* 📱 Responsivo */
+/* RESPONSIVO */
 @media (max-width: 768px) {
+  .dresscode-container {
+    margin-left: -5%;
+    padding: 3rem 1.5rem;
+    width: 80%;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
   .dresscode-grid {
-    flex-direction: column;
-    align-items: center;
+    gap: 1.8rem;
   }
 
   .card {
-    width: 90%;
+    width: 100%;
   }
 }
 </style>

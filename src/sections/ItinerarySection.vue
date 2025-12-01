@@ -61,42 +61,41 @@ const events = [
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 4rem 1rem;
-  font-family: 'Poppins', sans-serif;
+  padding: 6rem 1rem;
   scroll-snap-align: start;
-  background: linear-gradient(to bottom right, #fff5e4, #ffe3c0);
+  background: white url('https://www.transparenttextures.com/patterns/white-linen.png');
+  background-size: 250px 250px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Contenedor principal */
+/* Contenedor */
 .timeline-container {
   width: 100%;
-  max-width: 900px;
-  position: relative;
+  max-width: 800px;
+  text-align: center;
 }
 
 /* Título */
 .title {
-  text-align: center;
-  font-size: 2rem;
-  color: #8b4513;
-  margin-bottom: 3rem;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: #000;
   letter-spacing: 1px;
+  margin-bottom: 3rem;
 }
 
-/* Línea vertical central */
+/* Línea central */
 .timeline {
   position: relative;
   margin: 0 auto;
-  padding: 2rem 0;
-  width: 100%;
+  padding: 1rem 0;
 }
 
-.timeline::after {
+.timeline::before {
   content: '';
   position: absolute;
-  width: 4px;
-  background-color: #b5651d;
+  width: 3px;
+  background: #d4791f;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -104,97 +103,78 @@ const events = [
   border-radius: 2px;
 }
 
-/* Cada evento */
+/* Evento */
 .timeline-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0;
   position: relative;
-  width: 50%;
-  padding: 1rem 2rem;
-  box-sizing: border-box;
 }
 
-.timeline-item.left {
-  left: 0;
-  text-align: right;
-}
-
-.timeline-item.right {
-  left: 50%;
-  text-align: left;
-}
-
-/* Conectores circulares */
+/* Punto circular */
 .timeline-item::before {
   content: '';
   position: absolute;
-  top: 20px;
-  width: 20px;
-  height: 20px;
-  background-color: #b5651d;
-  border: 3px solid #fff;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background: #d4791f;
+  border: 3px solid white;
   border-radius: 50%;
-  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
-.timeline-item.left::before {
-  right: -10px;
-}
-
-.timeline-item.right::before {
-  left: -10px;
-}
-
-/* Contenido de las tarjetas */
+/* Caja */
 .content {
-  background-color: #fffdf9;
-  padding: 1.2rem 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background: #fffefc;
+  padding: 1.8rem 2rem;
+  border-radius: 20px;
+  width: 75%;
+  box-shadow: 0 6px 14px #d4791f;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
 }
 
 .content:hover {
-  transform: translateY(-5px);
+  transform: translateY(3px);
 }
 
+/* Textos */
 .content h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #b5651d;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #d4791f;
+  margin-bottom: 0.4rem;
 }
 
 .content h4 {
-  margin: 0.3rem 0;
-  font-size: 1.1rem;
-  color: #5a3825;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: #000;
 }
 
 .content p {
-  margin: 0.5rem 0 0;
-  font-size: 0.95rem;
-  color: #4b2e1f;
-  line-height: 1.5;
+  font-size: 1rem;
+  color: #000;
+  line-height: 1.6;
 }
 
-/* 📱 Responsivo */
+/* 📱 RESPONSIVE */
 @media (max-width: 768px) {
-  .timeline::after {
-    left: 20px;
+  .title {
+    font-size: 1.8rem;
   }
 
-  .timeline-item {
-    width: 100%;
-    padding-left: 3rem;
-    padding-right: 1rem;
-    text-align: left;
+  .content {
+    width: 80%;
+    padding: 0rem;
   }
 
-  .timeline-item.left,
-  .timeline-item.right {
-    left: 0;
-  }
-
-  .timeline-item::before {
-    left: 10px;
+  .timeline::before {
+    width: 2px;
   }
 }
 </style>

@@ -7,14 +7,16 @@
       <section id="itinerario"><ItinerarySection /></section>
 
       <section id="confirmacion">
-        <RsvpSection @cazuela="showCazuela = $event" />
+        <RsvpSection @cazuela="handleCazuela" />
       </section>
+
       <section id="cazuela" v-if="showCazuela">
-        <CazuelaSection />
+        <CazuelaSection :guestName="guestName" />
       </section>
 
       <section id="codigo-vestimenta"><DressCodeSection /></section>
       <section id="galeria"><GallerySection /></section>
+      <section id="gifts"><GiftsSection /></section>
     </main>
     <Footer />
   </div>
@@ -24,6 +26,15 @@
 import { ref } from 'vue'
 
 const showCazuela = ref(false)
+const guestName = ref('')
+
+function handleCazuela(payload) {
+  showCazuela.value = payload.show
+
+  if (payload.name) {
+    guestName.value = payload.name
+  }
+}
 
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
@@ -35,6 +46,7 @@ import RsvpSection from '@/sections/RsvpSection.vue'
 import CazuelaSection from '@/sections/CazuelaSection.vue'
 import DressCodeSection from '@/sections/DressCodeSection.vue'
 import GallerySection from '@/sections/GallerySection.vue'
+import GiftsSection from '@/sections/GiftsSection.vue'
 </script>
 
 <style scoped>

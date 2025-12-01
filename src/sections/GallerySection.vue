@@ -83,15 +83,16 @@ onUnmounted(() => window.removeEventListener('keydown', manejarTeclas))
 .gallery-section {
   min-height: 100vh;
   padding: 4rem 2rem;
-  background: #fff8f2;
+  background: white url('https://www.transparenttextures.com/patterns/white-linen.png');
+  background-size: 250px 250px;
   text-align: center;
 }
 
 .gallery-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
-  color: #4b2e1f;
-  font-weight: 700;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 0.8rem;
 }
 
 /* GRID TIPO PINTEREST */
@@ -160,11 +161,11 @@ onUnmounted(() => window.removeEventListener('keydown', manejarTeclas))
   justify-content: center;
   align-items: center;
   z-index: 9000;
-  padding: 1rem;
+  padding: 0rem;
 }
 
 .lightbox-img {
-  max-width: 90%;
+  max-width: 80%;
   max-height: 85%;
   border-radius: 12px;
   object-fit: contain;
