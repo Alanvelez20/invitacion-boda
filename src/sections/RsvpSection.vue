@@ -1,4 +1,10 @@
 <template>
+  <div class="section-divider">
+    <span class="line left"></span>
+    <p style="font-size: xx-large">N & A</p>
+    <span class="line right"></span>
+  </div>
+
   <section id="rsvp" class="section rsvp-section">
     <div class="rsvp-container">
       <h2 class="title">Confirmación de asistencia</h2>
@@ -253,7 +259,7 @@ const submitCompanions = async () => {
 
 <style scoped>
 .section {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -419,6 +425,40 @@ const submitCompanions = async () => {
   font-size: 1.05rem;
   font-weight: 600;
   color: #000;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.section-divider .line {
+  height: 1px;
+  background: #d4791f; /* dorado suave */
+  width: 38%;
+}
+
+.section-divider .divider-icon {
+  width: 28px;
+  margin: 0 12px;
+  opacity: 0.8;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08));
+}
+
+/* Fade-in suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Animación */
