@@ -72,7 +72,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 const venueImages = [
   'src/assets/images/terraza3.jpeg',
   'src/assets/images/terraza2.jpeg',
-  'src/assets/images/terraza1.jpeg',
+  'src/assets/images/terraza1.png',
 ]
 
 const currentSlide = ref(0)
