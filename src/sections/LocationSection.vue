@@ -69,11 +69,11 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-const venueImages = [
-  'src/assets/images/terraza3.jpeg',
-  'src/assets/images/terraza2.jpeg',
-  'src/assets/images/terraza1.png',
-]
+import t1 from '@/assets/images/terraza3.jpeg'
+import t2 from '@/assets/images/terraza2.jpeg'
+import t3 from '@/assets/images/terraza1.png'
+
+const venueImages = [t1, t2, t3]
 
 const currentSlide = ref(0)
 let interval = null
