@@ -45,7 +45,6 @@ import img9 from '@/assets/images/932A9904.jpg'
 
 const fotos = [img1, img2, img3, img4, img5, img6, img7, img8, img9]
 
-// Estado del lightbox
 const lightboxAbierto = ref(false)
 const fotoActual = ref(0)
 
